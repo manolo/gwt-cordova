@@ -1,20 +1,23 @@
 package com.florianf.gwtcordova.client.plugin.contacts;
 
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
-@JsType
-public interface ContactField {
+@JsType(isNative = true, namespace = JsPackage.GLOBAL, name = "ContactField")
+public class ContactField {
 
-    @JsProperty(name = "id")
-    String getId();
+	@JsProperty
+	public String type;
 
-    @JsProperty(name = "type")
-    String getType();
+	@JsProperty
+	public String value;
 
-    @JsProperty(name = "value")
-    String getValue();
-
-    @JsProperty(name = "pref")
-    String getPref();
+	@JsProperty
+	public boolean pref;
+	
+	@JsConstructor
+	public ContactField(String type, String value, boolean pref) {
+	}
 }
